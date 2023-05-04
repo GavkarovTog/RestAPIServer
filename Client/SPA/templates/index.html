@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/zeroing.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <button class="read_button button" id="read_button">Обновить</button>
+    <div class="container">
+        <form class="block_table_data  form" method="POST" formURL="createCity">
+            <div class="block_row_data">
+                <label for="city_name">Название города</label>
+                <input type="text" id="city_name" name="name" placeholder="Введите текст...">
+            </div>
+            <div class="block_row_data">
+                <label for="city_country">Название страны</label>
+                <input type="text" id="city_country" name="country" placeholder="Введите текст...">
+            </div>
+            <div class="block_row_data">
+                <label for="city_square">Плошадь</label>
+                <input type="text" id="city_square" name="square" placeholder="Введите текст...">
+            </div>
+            <button class="create_button button" type="button">Создать</button>
+        </form>
+
+        <form class="block_table_data  form" formURL="createFirm">
+            <div class="block_row_data">
+                <label for="firm_name">Название фирмы</label>
+                <input type="text" id="firm_name" name="name" placeholder="Введите текст...">
+            </div>
+            <div class="block_row_data">
+                <label for="firm_income">Количество работающих</label>
+                <input type="text" id="firm_income" name="income" placeholder="Введите текст...">
+            </div>
+            <button class="create_button button" type="button">Создать</button>
+        </form>
+
+        <form class="block_table_data  form" formURL="createReligion">
+            <div class="block_row_data">
+                <label for="religion_name">Название религии</label>
+                <input type="text" id="religion_name" name="name" placeholder="Введите текст...">
+            </div>
+            <button class="create_button button" type="button">Создать</button>
+        </form>
+        <form class="block_table_data form" formURL="createHuman">
+            <div class="block_row_data">
+                <label for="human_name">Имя</label>
+                <input type="text" id="human_name" name="name" placeholder="Введите текст...">
+            </div>
+            <div class="block_row_data">
+                <label for="human_age">Возраст</label>
+                <input type="text" id="human_age" name="age" placeholder="Введите текст...">
+            </div>
+            <div class="block_row_data">
+                <label for="human_nationality">Национальность</label>
+                <input type="text" id="human_nationality" name="nationality" placeholder="Введите текст...">
+            </div>
+            <div class="block_row_data">
+                <label for="human_city_id">Город проживания</label>
+                <input type="text" id="human_city_id" name="city" placeholder="Введите текст...">
+            </div>
+            <div class="block_row_data">
+                <label for="human_job_id">Работа</label>
+                <input type="text" id="human_job_id" name="job" placeholder="Введите текст...">
+            </div>
+            <div class="block_row_data">
+                <label for="human_religion_id">Религия</label>
+                <input type="text" id="human_religion_id" name="religion" placeholder="Введите текст...">
+            </div>
+            <button class="create_button button" type="button">Создать</button>
+        </form>
+
+        <div class="block_row_data">
+            <table class="table">
+                <thead><th>ID</th><th>Название</th><th>Страна</th><th>Площадь</th></thead>
+                <tbody id="tbody_data_city"></tbody>
+            </table>
+        </div>
+        <div class="block_row_data">
+            <table class="table">
+                <thead><th>ID</th><th>Название</th><th>Количество рабочих</th></thead>
+                <tbody id="tbody_data_firm"></tbody>
+            </table>
+        </div>
+        <div class="block_row_data">
+            <table class="table">
+                <thead><th>ID</th><th>Название</th></thead>
+                <tbody id="tbody_data_religion"></tbody>
+            </table>
+        </div>
+        <div class="block_row_data">
+            <table class="table">
+                <thead><th>ID</th><th>Имя</th><th>Возраст</th><th>Национальность</th><th>Работа</th><th>Город проживания</th><th>Религия</th></thead>
+                <tbody  id="tbody_data_human"></tbody>
+            </table>
+        </div>
+
+        <form class="block_table_data block_table_update_data formUpdate block_z_index_1" formURL="updateReligion">
+            <div class="block_row_data">
+                <label for="religion_name">Название религии</label>
+                <input type="text" id="religion_name" name="name" placeholder="Введите текст...">
+            </div>
+            <button class="update_button button" type="button">Изменить</button>
+            <button class="cancel_button button" type="button">Отимена</button>
+        </form>
+
+        <form class="block_table_data block_table_update_data formUpdate block_z_index_2" formURL="updateHuman">
+            <div class="block_row_data">
+                <label for="human_name">Имя</label>
+                <input type="text" id="human_name" name="name" placeholder="Введите текст...">
+            </div>
+            <div class="block_row_data">
+                <label for="human_age">Возраст</label>
+                <input type="text" id="human_age" name="age" placeholder="Введите текст...">
+            </div>
+            <div class="block_row_data">
+                <label for="human_nationality">Национальность</label>
+                <input type="text" id="human_nationality" name="nationality" placeholder="Введите текст...">
+            </div>
+            <div class="block_row_data">
+                <label for="human_job_id">Работа</label>
+                <input type="text" id="human_job_id" name="job" placeholder="Введите текст...">
+            </div>
+            <div class="block_row_data">
+                <label for="human_city_id">Город проживания</label>
+                <input type="text" id="human_city_id" name="city" placeholder="Введите текст...">
+            </div>
+            <div class="block_row_data">
+                <label for="human_religion_id">Религия</label>
+                <input type="text" id="human_religion_id" name="religion" placeholder="Введите текст...">
+            </div>
+            <button class="update_button button" type="button">Изменить</button>
+            <button class="cancel_button button" type="button">Отимена</button>
+        </form>
+
+        <form class="block_table_data block_table_update_data formUpdate block_z_index_3" formURL="updateFirm">
+            <div class="block_row_data">
+                <label for="firm_name">Название фирмы</label>
+                <input type="text" id="firm_name" name="name" placeholder="Введите текст...">
+            </div>
+            <div class="block_row_data">
+                <label for="firm_income">Количество работающих</label>
+                <input type="text" id="firm_income" name="income" placeholder="Введите текст...">
+            </div>
+            <button class="update_button button" type="button">Изменить</button>
+            <button class="cancel_button button" type="button">Отимена</button>
+        </form>
+
+        <form class="block_table_data block_table_update_data formUpdate block_z_index_4" method="POST" formURL="updateCity">
+            <div class="block_row_data">
+                <label for="city_name">Название города</label>
+                <input type="text" id="city_name" name="name" placeholder="Введите текст...">
+            </div>
+            <div class="block_row_data">
+                <label for="city_country">Название страны</label>
+                <input type="text" id="city_country" name="country" placeholder="Введите текст...">
+            </div>
+            <div class="block_row_data">
+                <label for="city_square">Плошадь</label>
+                <input type="text" id="city_square" name="square" placeholder="Введите текст...">
+            </div>
+            <button class="update_button button" type="button">Изменить</button>
+            <button class="cancel_button button" type="button">Отимена</button>
+        </form>
+    </div>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
